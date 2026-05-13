@@ -34,7 +34,20 @@ Value = (Dream Outcome × Perceived Likelihood of Achievement) ÷ (Time Delay ×
 - **Stop** at OAuth, CAPTCHA, and any payment or credit-card screen. Surface the cost, let him decide.
 - Before recommending platform-specific behavior (Meta Lead Forms, HubSpot workflows, Conversions API, etc.), verify current behavior via Context7 — don't rely on training data alone.
 
+## Lead-gen forms — durable rules
+
+Rules that apply to *every* Sirf Tents lead-gen form (Meta instant form, landing page, anywhere). Form-specific spec lives in `handoffs/<form>.md`.
+
+- **Never use "Other" as a multi-choice option.** It's a junk magnet. Either the option list is complete or the option list is wrong — don't paper over it.
+- **Multi-choice brackets (guest count, budget, size) must align to actual SKU sizes.** If brackets don't match what we sell, the form has created a follow-up question that has to happen on the call. The form's job is to eliminate that follow-up.
+- **Meta Lead Form question order is mandatory: multi-choice → short answer → appointment-scheduling (`DATE_TIME`).** Meta's API enforces it; `DATE_TIME` must come last when used.
+- **Instagram DM is never offered as a contact channel.** The GTA mid-aged wedding audience doesn't check IG DMs reliably. Don't add it back "as an option" — it's a black hole.
+- **Primary Meta CAPI optimization target is `QuoteCallBooked` (mapped to Meta `Schedule`), never `Lead`.** Optimizing on `Lead` makes Meta chase volume; we need quality. See `handoffs/hubspot-meta-integration.md`.
+- **Meta lead forms default to `is_optimized_for_quality: true`** (Higher Intent — adds a review-and-confirm step). Turn off only with a specific reason and a planned A/B test.
+- **Free-text date fields require a tolerant parser + manual-review fallback property.** Leads write "summer", "TBD", "6/15", "next August" — plan for it.
+- **The form is the filter, not the call.** If a question can be asked in the form and answered consistently, ask it in the form. The call is for personalization, not qualification.
+
 ## Current progress
 
-- **Done:** Meta instant form live on FB/IG.
-- **Open:** HubSpot ↔ Meta Ads bidirectional integration. See `handoffs/hubspot-meta-integration.md`. Awaiting Gurvir's choice between Option A (Click-to-WhatsApp), B (Meta Lead Forms), or C (Landing page form) before execution begins.
+- **Done:** Optimized Meta instant form shipped 2026-05-12 on the Legacy + Premium campaign. Spec at `handoffs/meta-instant-form.md`. Option B (Meta Lead Forms) effectively chosen.
+- **Open:** HubSpot ↔ Meta CAPI back-half — deal-stage → conversion-event mapping; verify `QuoteCallBooked` and `Purchase` events fire end-to-end. See `handoffs/hubspot-meta-integration.md`.
