@@ -1,123 +1,98 @@
 # Sirf Tents — HubSpot ↔ Meta Ads Integration
 
-**Owner:** Gurvir | **Business:** Sirf Tents (premium tent rental, Brampton ON, GTA wedding market)
+**Owner:** Gurvir
+**Status:** Lead capture is live on both campaigns. Back-half (HubSpot deal-stage → Meta CAPI conversion events) **not yet implemented**.
 
 ---
 
-## Objective
+## Current implemented state
 
-Wire bidirectional sync between Meta Ads and HubSpot to fix the attribution problem.
+Two campaigns run in parallel with distinct lead paths. Channel routing is by campaign tier — never propose mixing them (`CLAUDE.md` → *Channel routing by campaign tier*).
 
-**Current state:** Ads are running. Leads are coming in. Gurvir doesn't know which ads are producing actual *booked* weddings. Meta is optimizing on the wrong target (lead volume, not booked revenue).
+### Legacy + Premium campaign → instant form → IG Messages → call
 
-**End state:**
-1. Every Meta-sourced lead lands in HubSpot with ad/campaign attribution attached
-2. HubSpot deal stage progressions fire conversion events back to Meta via Conversions API
-3. Meta's algorithm starts optimizing for booked clients, not raw leads
+- **Ad CTA:** Meta instant form, 5 questions, Higher Intent mode (`is_optimized_for_quality: true`)
+- **Form spec:** `handoffs/meta-instant-form.md` — shipped 2026-05-12
+- **Form name in Meta:** *SIRF Tents - Legacy & Premium Lead Form*
+- **Lead lands in:** HubSpot contact record (form fields + Meta ad attribution `meta_ad_id` / `meta_adset_id` / `meta_campaign_id`) AND Instagram Messages business inbox, in parallel
+- **Initial response:** human, on Instagram Messages, by either co-founder
+- **Call booking:** inside the IG conversation
+- **AOV (per `CLAUDE.md`):** Legacy Standard ~$3,500 / Legacy Signature ~$6,500 / Legacy Grand ~$9,000
+- **Deal stages documented in the form handoff:** `Quote Call Booked` (if reply shows call/consultation interest) and `Information Stage` (if reply is questions/browsing). Full pipeline state unconfirmed — see open questions.
 
----
+### High Peak (Small Tents) campaign → Click-to-WhatsApp → call
 
-## Business Context
-
-- AOV: $3,500 (Standard) / $6,500 (Signature) / $9,000 (Grand)
-- Floor: 100+ guest weddings and engagements only
-- Funnel: Meta ad → WhatsApp → quote call → site visit/quote → deposit → booking
-- Sales cycle: ~1–8 weeks
-- Heavy WhatsApp dependence at the lead-to-quote handoff stage
-
----
-
-## Decision Point: Lead Capture Architecture (ASK GURVIR FIRST)
-
-The integration changes based on which ad format he's running. Confirm before proceeding.
-
-### Option A — Click-to-WhatsApp ads
-Ad CTA opens WhatsApp directly. No form.
-
-- Connect HubSpot's WhatsApp Business integration (or Zapier/Make bridge)
-- Configure ad URL parameters to pass Meta's `fbclid` into the WhatsApp prefill so it survives into HubSpot
-- Connect HubSpot ↔ Meta Ads via App Marketplace (for spend/campaign sync)
-- Set up Meta Conversions API in HubSpot
-
-**Caveat:** Messiest attribution path. Click ID matching needs deliberate URL templating. WhatsApp Business API is a paid HubSpot add-on. If attribution is currently broken, recommend migrating to B or C.
-
-### Option B — Meta Lead Forms
-Instant form on FB/IG, WhatsApp follow-up.
-
-- Connect HubSpot ↔ Meta Ads via App Marketplace (HubSpot → Marketing → Ads → Connect Accounts → Meta)
-- Map Meta lead form fields → HubSpot contact properties
-- HubSpot Workflow on new contact → triggers WhatsApp template message
-- Set up Meta Conversions API in HubSpot
-
-**Cleanest path.** Each lead carries `ad_id`, `adset_id`, `campaign_id` automatically.
-
-### Option C — Landing page form (the page he's currently building)
-Form on Sirf Tents landing page → HubSpot → WhatsApp follow-up.
-
-- Install Meta Pixel on landing page
-- Install Meta Conversions API (server-side via HubSpot or via tag manager)
-- HubSpot form embed (or HubSpot Forms API)
-- Capture `fbclid` from URL into the HubSpot contact record on submission
-- HubSpot Workflow on form submission → WhatsApp message
-- Set up CAPI back-half
-
-**Most aligned with current landing page work.**
+- **Ad CTA:** opens WhatsApp directly with prefilled message — no form
+- **Initial response:** human, on WhatsApp
+- **Call booking:** inside the WhatsApp conversation
+- **Pricing:** $500 / $800 / $1,000 (40 / 60 / 80 guests)
+- **HubSpot integration today:** unconfirmed — see open questions
 
 ---
 
-## Back-Half: Conversion Events to Meta (same for A, B, and C)
+## What's NOT yet implemented
 
-This is what fixes attribution. Map HubSpot deal stages → Meta conversion events via HubSpot's CAPI integration.
+### Back-half: CAPI conversion events from HubSpot deal stages
 
-| HubSpot Deal Stage | Meta Event | Why |
+No Zapier, Make, or native CAPI integration is live. Meta is still optimizing on raw lead volume, not on quote calls booked or weddings actually booked. This is the attribution problem the integration was created to solve.
+
+### Speed-to-first-response tracking (pending KPI)
+
+- Meta lead created → first IG message sent (Legacy + Premium) / first WhatsApp message (High Peak)
+- Targets per form handoff: <15 min ASAP / <1h next-month / <4h 2-3 months / <24h just-exploring (Legacy + Premium only — High Peak has no Q3 urgency bracket since there's no form)
+- Currently un-instrumented
+
+### Lead → Booked Consultation conversion rate (pending KPI)
+
+- Target baseline 25–35% blended (hot leads >50%, just-exploring <10%) per form handoff
+- Requires deal-stage reporting to be wired
+
+---
+
+## Strategic goal of the back-half
+
+Map HubSpot deal stages → Meta CAPI events so Meta optimizes on real funnel progression, not raw form-fillers.
+
+| HubSpot deal stage | Meta event | Why |
 |---|---|---|
-| Lead created (auto) | `Lead` | High volume, low value. Do NOT optimize ad campaigns on this. |
-| Quote call booked | Custom: `QuoteCallBooked` (mapped to `Schedule`) | **Primary optimization target.** Mid-funnel, ~5–10x lower volume than leads, much higher quality signal. |
-| Deposit paid | `Purchase` (with deal value) | Bottom-funnel, lowest volume, highest signal. Secondary target once volume allows. |
+| Lead (auto on contact creation) | `Lead` | High volume, low value — never make this the optimization target |
+| Quote Call Booked | Custom `QuoteCallBooked` → mapped to Meta `Schedule` | **Primary optimization target.** Mid-funnel, ~5–10× lower volume than leads, much higher quality signal |
+| Deposit paid / Booked (stage TBD — pipeline unconfirmed) | `Purchase` (with deal $ value) | Bottom-funnel, lowest volume, highest signal. Secondary target once volume justifies |
 
-**Why `QuoteCallBooked` is the primary, not `Purchase`:**
-At $3.5K–$9K AOV with a 1–8 week cycle, optimizing on `Purchase` alone gives Meta too few events per week (likely <50, below Meta's stable optimization threshold). `QuoteCallBooked` should generate 30–100/week during summer prep — Meta's sweet spot.
+**Why `QuoteCallBooked` is primary, not `Purchase`:** at $3.5K–$9K AOV with a 1–8 week cycle, optimizing on `Purchase` alone would give Meta <50 events/week — below the stable-optimization threshold. `QuoteCallBooked` should generate 30–100/week in peak season (May–October).
 
-**Match keys to send via CAPI:** email, phone, `fbclid`, first name, last name, city. Higher key count = higher match rate. Target >70% match rate in Meta Events Manager.
+**Match keys to send via CAPI when wired:**
+- **Legacy + Premium:** email, phone, first name, last name, city, `meta_ad_id`, `meta_adset_id`, `meta_campaign_id`
+- **High Peak:** same set, plus WhatsApp `ctwa_clid` if capturable (open question)
 
----
-
-## Execution Sequence
-
-1. **Confirm A / B / C with Gurvir** before touching anything.
-2. **Drive HubSpot ↔ Meta Ads connector wizard:**
-   - hubspot.com → Marketing → Ads → Connect Accounts → Meta
-   - Gurvir handles Meta Business OAuth
-   - Select Sirf Tents ad account
-   - Authorize lead form sync (if Option B)
-3. **Configure Conversions API in HubSpot:**
-   - Marketing → Ads → Conversion Events
-   - Connect Meta Pixel (Gurvir authorizes)
-   - Map deal stages → Meta events per table above
-   - Set deal value field for `Purchase` event
-4. **Test end-to-end:**
-   - Submit a test lead through the live path
-   - Verify HubSpot contact has campaign attribution attached
-   - Move test deal through stages, verify CAPI events fire in Meta Events Manager
-   - Check match rate (>70%)
-5. **Wire deal stage automation:**
-   - "Quote Call Booked" → triggered by calendar booking webhook or manual stage change
-   - "Deposit Paid" → triggered by payment processor webhook
+Target match rate >70% in Meta Events Manager.
 
 ---
 
-## Out of Scope for This Session
+## Open questions blocking back-half work
 
-- Building HubSpot deal pipeline from scratch (assume exists; create minimal version if not)
-- Full email/SMS automation in HubSpot (separate task)
-- Ad creative optimization (separate task)
+1. **How are Legacy + Premium leads syncing to HubSpot today?** The form handoff says "via the Meta ↔ HubSpot Ads connector." That connector may be Marketing Hub Pro-gated, and Gurvir is on Starter — likely actual path is Meta's free native HubSpot integration (Meta-side). Verify via Context7 / current HubSpot docs before assuming either way. Affects whether the back-half can ride the same plumbing or needs an external relay (Zapier / Make / custom webhook).
+
+2. **Are ad attribution fields actually populated on existing HubSpot contacts?** Open 3–5 recent Meta-sourced contacts and confirm `meta_ad_id`, `meta_adset_id`, `meta_campaign_id` are present and non-empty. If any are missing, any CAPI event built later fires without the keys Meta needs to attribute back to ads — match rate craters, algorithm can't learn.
+
+3. **What's the current HubSpot deal pipeline state?** What stages exist beyond the documented `Quote Call Booked` and `Information Stage`? The back-half needs at minimum a stage representing "deposit paid / booked" to fire the `Purchase` event.
+
+4. **High Peak — are leads being entered into HubSpot at all today?** Or do they live only in WhatsApp? Without a HubSpot record there's no deal-stage progression to fire CAPI events from.
+
+5. **High Peak — is the WhatsApp click ID (`ctwa_clid`) captured anywhere on conversation start?** Without it, even if a HubSpot record exists, CAPI events have no match key tying them back to the originating ad. Attribution for this campaign is structurally harder than for Legacy + Premium.
 
 ---
 
-## Working Style Notes
+## Constraints
 
-- Gurvir prefers CLI/terminal; don't push HubSpot UI for things doable via API
-- He's strategic, not technical — explain the *why* behind each step, not just the clicks
-- Stop at OAuth and CAPTCHA, let him handle
-- Do NOT enter credit card or banking info. If HubSpot upgrade is needed (e.g., WhatsApp Business API tier), surface the cost and let him decide
-- He pressure-tests answers — be concrete, not generic
+- **HubSpot Marketing Hub Starter only.** No upgrade — Gurvir's call. Back-half must work without features gated behind Pro.
+- **Channel routing by campaign tier is non-negotiable.** Legacy + Premium → IG Messages. High Peak → WhatsApp. Never propose flows that cross these.
+- **Working-style rules in `CLAUDE.md` apply** — stop at OAuth / CAPTCHA / payment, verify platform-specific behavior via Context7 before recommending.
+
+---
+
+## Files & references
+
+- `CLAUDE.md` — business rules, channel routing, copy framework, working style
+- `handoffs/meta-instant-form.md` — form spec, qualifying logic, KPIs
+- This file — integration state, open questions, back-half goal
