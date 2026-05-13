@@ -115,21 +115,46 @@ If a backyard-party lead slips through (say, a 60-person milestone birthday that
 ## Where leads route after submission
 
 1. **Meta → HubSpot:** Lead syncs to HubSpot via the Meta ↔ HubSpot Ads connector. All 5 form fields plus ad attribution (`meta_ad_id`, `meta_adset_id`, `meta_campaign_id`) attach to the contact record.
-2. **HubSpot workflow fires** — branches on `Q3 — urgency`:
+2. **Meta → IG Messages:** In parallel, the lead surfaces in the Sirf Tents Instagram business inbox. Both co-founders get fast notifications on their phones and respond by hand. The form has already pre-qualified the lead, so the first message is personal and reference-rich (past-event photos relevant to their `event_type` / `guest_count` / `event_location`).
+3. **Initial response is always human and fast** — not templated, not automated. Channel: **Instagram Messages**. See `CLAUDE.md` → *Channel routing by campaign tier* for why IG is the correct channel for the Legacy/Premium tier (and why High Peak goes WhatsApp instead).
+4. **Follow-up cadence — 1–2 IG follow-ups if no response, branched by Q3 urgency:**
 
-   | Q3 answer | SMS sent within | Template (sender: TBD — confirm SMS number / WhatsApp Business number Gurvir wants used) |
+   | Q3 answer | 1st follow-up | 2nd follow-up |
    |---|---|---|
-   | ASAP — Within 1-2 weeks | 5 min | *"Hi {first_name}, Gurvir from SIRF Tents — got your {event_type} inquiry for {guest_count} guests on {event_date} in {event_location}. Sounds like you're moving fast. Can we hop on a 15-min call today or tomorrow to lock your quote? Reply with 2 times that work."* |
-   | Within the next month | 1 hour | *"Hi {first_name}, Gurvir from SIRF Tents — got your {event_type} inquiry. Want to lock a 15-min call this week? Reply with 2 times that work."* |
-   | Within 2-3 months | 1 hour | *"Hi {first_name}, Gurvir from SIRF Tents — got your {event_type} inquiry. Happy to send a starter quote — and a 15-min call gets you exact pricing locked. Reply with 2 times that work next week."* |
-   | Just exploring | 4 hours | *"Hi {first_name}, Gurvir from SIRF Tents — got your {event_type} inquiry. Sending some inspo photos and rough pricing later today. Whenever you're ready to lock a date, we'll set up a quick call."* |
+   | ASAP — Within 1-2 weeks | 4h after initial | 24h after initial |
+   | Within the next month | 24h | 4 days |
+   | Within 2-3 months | 24h | 7 days |
+   | Just exploring | 48h | 7 days (nurture, not chase) |
 
-3. **Reply triggers next stage:**
-   - Reply with call time → HubSpot deal stage `Quote Call Booked` → fires Meta CAPI `QuoteCallBooked` (mapped to Meta `Schedule` event — primary optimization target per `handoffs/hubspot-meta-integration.md`)
-   - Reply asking for info only / wanting WhatsApp first → HubSpot deal stage `WhatsApp / Info Nurture` → Gurvir engages manually, attempts call upgrade later
-   - No reply within 24h → automated follow-up SMS
+   After the 2nd follow-up the lead is cold. Move on; revisit in ~30 days or when the next ad cycle re-warms them.
 
-**WhatsApp number used as soft opt-out:** TBD — confirm Gurvir's WhatsApp Business number. The SMS workflow needs to know where to send leads who text back asking for WhatsApp instead of a call.
+5. **Reply triggers HubSpot deal-stage progression:**
+   - Reply with call/consultation interest → deal stage `Quote Call Booked` → fires Meta CAPI `QuoteCallBooked` (mapped to Meta `Schedule` event — primary optimization target per `handoffs/hubspot-meta-integration.md`)
+   - Reply with questions / browsing → deal stage `Information Stage` → conversation continues on IG; co-founders attempt to upgrade to a quote call when appropriate
+
+**Note on form thank-you copy:** The shipped thank-you screen says *"We'll text you within 1 hour."* In practice the channel is IG Messages, not SMS. "Text" works colloquially for the audience, but consider updating to *"We'll message you within 1 hour on Instagram"* in a future iteration if you want the channel to be explicit.
+
+## Verification
+
+### Live state (confirmed 2026-05-12)
+
+- ✅ Form is live on the **Legacy + Premium campaign** in Meta Ads Manager
+- ✅ Leads flow into **HubSpot** (contact record + ad attribution) **and** **IG Messages** (business inbox) in parallel
+- ✅ Initial response is **human-handled by the two co-founders** with fast notifications on their phones
+- ✅ Follow-up sequence: **1–2 messages** if no response, branched by Q3 urgency (see table above)
+
+### Pending tests — not yet instrumented
+
+These need to be set up so we can measure whether the form is doing its job:
+
+- [ ] **Speed-to-first-response tracking.** Time from `Meta lead created` → `co-founder's first IG message sent`. Suggested targets by Q3 urgency: <15 min for ASAP, <1h for next-month, <4h for 2-3 months, <24h for just-exploring. Easiest v1: log timestamps manually in a shared sheet for the first 30 days; v2: HubSpot timestamp property on the IG-message activity.
+- [ ] **Conversion rate: Lead → Booked Consultation.** % of form submits that reach the `Quote Call Booked` deal stage. Baseline target: 25–35% blended (hot leads >50%, just-exploring <10%). Pull from HubSpot deal-stage reporting filtered to Meta source.
+
+### Watch-list metrics (after 30 days)
+
+- Booked Consultation → deposit conversion (true revenue metric)
+- Lead quality by Q3 urgency bucket — which urgency buckets actually book?
+- Lead quality by `event_type` — confirm wedding / reception+engagement dominate (as intended); flag if corporate or milestone surprise us
 
 ---
 
@@ -151,13 +176,13 @@ Watch the form-quality dashboard for 14 days post-launch. Key metrics:
 |---|---|---|
 | **Cost per lead** | Will rise vs. old form (expected — Higher Intent filters volume) | If it *also* doesn't shift cost-per-`QuoteCallBooked`, the form is over-filtering |
 | **Cost per `QuoteCallBooked`** (primary metric) | Should drop 20-40% vs. old form | If flat or worse → see "if underperforms" below |
-| **SMS reply rate** | >50% within 24h | Below 40% → SMS templates are too generic or sending from a number leads don't recognize |
-| **Show-up rate to booked calls** | >70% | Below 60% → call confirmation flow needs work, not the form |
+| **IG response rate** | >50% within 24h | Below 40% → opening messages are too generic, co-founders aren't seeing notifications fast enough, or the form audience isn't matching the funnel (creative-side issue) |
+| **Show-up rate to booked consultations** | >70% | Below 60% → consultation-confirmation flow needs work, not the form |
 | **Quote-to-deposit conversion** | Noisy, watch the trend | This is the true success metric; the form's job is to feed it cleaner leads |
 
 ### If it underperforms — ordered fixes to try
 
-1. **Test the SMS templates first, not the form.** If reply rate is low, the form is doing its job and the post-submit handoff is leaking. Re-write templates by Q3 segment. Consider sending the SMS from Gurvir's personal-feeling number rather than a corporate sender.
+1. **Test the IG opening message first, not the form.** If response rate is low, the form is doing its job and the post-submit handoff is leaking. Co-founders should A/B test opening-message variants by Q3 segment, lead with a relevant past-event photo, and verify push notifications are firing in real-time on both phones.
 2. **Soften Q3 if "just exploring" is over-selected.** If >40% of leads pick "just exploring," they're hedging because the other options feel like commitments. Rename "Just exploring" to *"More than 3 months out — taking my time"* and see if the distribution rebalances.
 3. **Add a postal-code field to Q4 if delivery quotes are wrong on the call.** Only do this if Gurvir is consistently mis-quoting delivery. The cost is ~5-10% completion-rate drop.
 4. **Re-test Q2 lowest bracket.** If the 60–80 bracket converts noticeably worse than the 80+ brackets, the 60-floor is too generous for the Legacy+Premium campaign and those should be routed to High Peak instead. Cut the 60–80 bracket and let the floor become 80.

@@ -41,11 +41,36 @@ Rules that apply to *every* Sirf Tents lead-gen form (Meta instant form, landing
 - **Never use "Other" as a multi-choice option.** It's a junk magnet. Either the option list is complete or the option list is wrong — don't paper over it.
 - **Multi-choice brackets (guest count, budget, size) must align to actual SKU sizes.** If brackets don't match what we sell, the form has created a follow-up question that has to happen on the call. The form's job is to eliminate that follow-up.
 - **Meta Lead Form question order is mandatory: multi-choice → short answer → appointment-scheduling (`DATE_TIME`).** Meta's API enforces it; `DATE_TIME` must come last when used.
-- **Instagram DM is never offered as a contact channel.** The GTA mid-aged wedding audience doesn't check IG DMs reliably. Don't add it back "as an option" — it's a black hole.
+- **Don't offer Instagram DM as a contact-method *field* in a lead form.** When leads pick IG DM themselves, it's a black hole — no notification urgency, easy to ignore. *But* IG Messages **are** the response channel after a Legacy/Premium form submit (see *Channel routing by campaign tier* below). The distinction matters: we control the channel, the lead doesn't choose it.
+- **Follow-up cadence: 1–2 messages if no response, branched by Q3 urgency.** Initial response is always human and fast. After the 2nd follow-up, the lead is cold — move on; revisit in 30 days or when ad cadence brings them back.
+  - *ASAP — Within 1-2 weeks:* 1st @ 4h, 2nd @ 24h
+  - *Within the next month:* 1st @ 24h, 2nd @ 4 days
+  - *Within 2-3 months:* 1st @ 24h, 2nd @ 7 days
+  - *Just exploring:* 1st @ 48h, 2nd @ 7 days (nurture-flavored, not chase)
 - **Primary Meta CAPI optimization target is `QuoteCallBooked` (mapped to Meta `Schedule`), never `Lead`.** Optimizing on `Lead` makes Meta chase volume; we need quality. See `handoffs/hubspot-meta-integration.md`.
 - **Meta lead forms default to `is_optimized_for_quality: true`** (Higher Intent — adds a review-and-confirm step). Turn off only with a specific reason and a planned A/B test.
 - **Free-text date fields require a tolerant parser + manual-review fallback property.** Leads write "summer", "TBD", "6/15", "next August" — plan for it.
 - **The form is the filter, not the call.** If a question can be asked in the form and answered consistently, ask it in the form. The call is for personalization, not qualification.
+
+## Channel routing by campaign tier
+
+Channel is determined by the *campaign tier*, not by lead preference. Each tier has a known audience profile and a single channel that works for it. Don't mix them.
+
+### Legacy + Premium campaign — rich form → IG Messages
+
+- **Lead flow:** Meta ad → instant form (5 questions, see `handoffs/meta-instant-form.md`) → HubSpot + IG Messages
+- **Response channel:** Instagram Messages, human-handled by the two co-founders with fast notifications on their phones.
+- **Why:** The rich Higher-Intent form already pre-qualifies. Anyone who finishes 5 questions is serious — and the Legacy/Premium audience skews IG-fluent and expects IG-quality visuals during the conversation (real past-event photos, story replies, reels). The form filters; IG converts.
+- **Follow-up cadence:** Branched by Q3 urgency, per the rule above.
+
+### High Peak campaign — no form → WhatsApp direct
+
+- **Lead flow:** Meta ad → Click-to-WhatsApp (no instant form) → manual WhatsApp conversation
+- **Response channel:** WhatsApp.
+- **Why:** Smaller events, lower spend, often older demographic that lives in WhatsApp and finds IG friction-y. A form would add friction without adding filter-value — the High Peak SKUs are simple ($500 / $800 / $1,000, 40 / 60 / 80 guests). Faster to hop straight into a WhatsApp quote.
+- **Follow-up cadence:** Same 1–2 message rule, judged in-conversation since there's no Q3 to branch on.
+
+**Cross-tier rule:** Never propose flows that mix these (e.g., "Legacy lead but route to WhatsApp" or "High Peak lead but build a form"). Tier-routing is the rule, not a default.
 
 ## Current progress
 
