@@ -10,10 +10,16 @@ Premium tent rental, Brampton ON, serving the GTA South Asian wedding market. Ow
   - High Peak Packages → 40 / 60 / 80 guest sizes
 - **Package categories:** High Peak Packages, Legacy Tent Packages
 - **Tent types:** High Peak, Frame, Legacy Structure
+- **SKU + price anchors:**
+  - High Peak 40 guests — $500
+  - High Peak 60 guests — $800
+  - High Peak 80 guests — $1,000
+  - Legacy Standard (100+ guests) — ~$3,500 AOV
+  - Legacy Signature — ~$6,500 AOV
+  - Legacy Grand — ~$9,000 AOV
 - **Social proof line (use verbatim):** *"Rated 5 Stars — 200+ GTA Events"*
-- **Funnel:** Meta ad → WhatsApp → quote call → site visit → deposit → booking
+- **Funnel:** Meta ad → WhatsApp or IG Messages (tier-dependent, see Channel routing) → quote call → site visit → deposit → booking
 - **Sales cycle:** ~1–8 weeks. Peak season: May–October.
-- **Lead handoff:** WhatsApp is the workhorse between ad-click and quote call. Don't propose flows that bypass it.
 
 ## Copywriting — use the Hormozi Value Equation
 
@@ -31,8 +37,9 @@ Value = (Dream Outcome × Perceived Likelihood of Achievement) ÷ (Time Delay ×
 - Direct and substantive. No fluff, no filler intros, no recap of what was just said.
 - Explain the *why*, not just the *what*. He's strategic, not technical, and he pressure-tests answers — be concrete, not generic.
 - Prefer CLI / API / code over UI walkthroughs when both work.
-- **Stop** at OAuth, CAPTCHA, and any payment or credit-card screen. Surface the cost, let him decide.
+- **IMPORTANT — Stop** at OAuth, CAPTCHA, and any payment or credit-card screen. Surface the cost, let him decide.
 - Before recommending platform-specific behavior (Meta Lead Forms, HubSpot workflows, Conversions API, etc.), verify current behavior via Context7 — don't rely on training data alone.
+- **IMPORTANT — `handoffs/*.md` are session-spanning memory.** When a topic touches an open initiative (HubSpot↔Meta CAPI, Meta instant form, etc.), read the relevant handoff *before* answering. Update it when state changes.
 
 ## Lead-gen forms — durable rules
 
@@ -70,7 +77,7 @@ Channel is determined by the *campaign tier*, not by lead preference. Each tier 
 - **Why:** Smaller events, lower spend, often older demographic that lives in WhatsApp and finds IG friction-y. A form would add friction without adding filter-value — the High Peak SKUs are simple ($500 / $800 / $1,000, 40 / 60 / 80 guests). Faster to hop straight into a WhatsApp quote.
 - **Follow-up cadence:** Same 1–2 message rule, judged in-conversation since there's no Q3 to branch on.
 
-**Cross-tier rule:** Never propose flows that mix these (e.g., "Legacy lead but route to WhatsApp" or "High Peak lead but build a form"). Tier-routing is the rule, not a default.
+**IMPORTANT — Cross-tier rule:** Never propose flows that mix these (e.g., "Legacy lead but route to WhatsApp" or "High Peak lead but build a form"). Tier-routing is the rule, not a default.
 
 ## Current progress
 
