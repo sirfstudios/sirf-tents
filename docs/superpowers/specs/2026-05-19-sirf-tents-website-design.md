@@ -82,7 +82,7 @@ This appears in the hero of every page, in the footer, and in the email signatur
 |---|---|
 | **Cultural fluency** (South Asian wedding specialists) | Mention sangeet, mehndi, reception, baraat by name — never generic "South Asian wedding." Show clear-top tents for daytime ceremonies (cultural preference). Photo selection includes Sikh, Hindu, Muslim weddings explicitly. Brand voice uses Indian wedding industry vocabulary natively, not as a translation. |
 | **Premium aesthetic** (taste over price) | Cinematic photography, generous whitespace, serif display type, transparent floor pricing ("starting at $3,500") that signals premium without hiding the number. We're not the cheapest — and we say so by what we don't say. |
-| **Proprietary Legacy Structure** (better tent, not just better marketing) | Our Legacy Structure tents are **custom-engineered** by Sirf Tents — 9.5 ft leg poles (vs. industry-standard ~8 ft), no cables running across the middle (frame tents have these), fewer side poles, higher ceilings, stronger frame. This is real product engineering competitors can't claim without retooling. Surfaced specifically on Legacy package pages and the About page. Phrased as engineering facts, not boasts: *"9.5 ft leg poles. No cross-cables. Higher ceilings. Stronger frame. Built specifically for large weddings, not retrofitted from generic event tents."* |
+| **Proprietary Legacy Structure tent** (better tent, not just better marketing) | The Legacy Structure is Sirf Tents' **custom-engineered structure tent** — a member of the industry's "structure tent" category (the engineered tier above frame tents and pole tents) but built to our own spec: 9.5 ft leg poles (vs. industry-standard ~8 ft), no cables running across the middle (frame tents have these), fewer side poles, higher ceilings, stronger frame. This is real product engineering competitors can't claim without retooling. Surfaced specifically on Legacy package pages, the inventory page, and the About page. Phrased as engineering facts, not boasts: *"A custom structure tent. 9.5 ft leg poles. No cross-cables. Higher ceilings. Stronger frame. Built specifically for large weddings, not retrofitted from generic event tents."* **SEO note:** Legacy package pages should rank for both "Legacy tent rental" (branded) and "structure tent rental" (category) — H1 and title tags accommodate both intents. |
 
 ## 1.6 What Sirf Tents is *not* (positioning negatives)
 
@@ -560,12 +560,14 @@ Same as homepage Section J, but with the package pre-selected:
 
 ## 5.2 Page-level metadata per package
 
-| Field | Template | Example (Legacy Signature) |
-|---|---|---|
-| Title tag | `<Package Name> Wedding Tent · <Guest Range> · Sirf Tents GTA` | *Legacy Signature Wedding Tent · 150–200 Guests · Sirf Tents GTA* |
-| Meta description | `<Package outcome sentence>. Starting at $<price>. Brampton-based, GTA-wide.` | *Premium wedding tent for 150–200 guests with chiavari, draping, and clear-top option. Starting at $6,500. Brampton-based, GTA-wide.* |
-| H1 | The package name | *Legacy Signature* |
-| Schema | Service + Offer + AggregateRating (section 11) | — |
+Title tag template differs between Legacy and High Peak — Legacy uses the "structure tent" category term so the page can rank for both branded ("Legacy Signature") and category ("structure tent rental") searches.
+
+| Field | Legacy template | Legacy example (Signature) | High Peak template | High Peak example (60) |
+|---|---|---|---|---|
+| Title tag | `<Package> Structure Tent · <Guest Range> · Sirf Tents GTA` | *Legacy Signature Structure Tent · 150–200 Guests · Sirf Tents GTA* | `<Package> Wedding Tent · <Guest Range> · Sirf Tents GTA` | *High Peak 60 Wedding Tent · 50–60 Guests · Sirf Tents GTA* |
+| Meta description | `<Package outcome sentence>. Custom structure tent. Starting at $<price>. Brampton-based, GTA-wide.` | *Premium structure tent for 150–200 guests with Clear Chiavari, draping, and clear-top option. Starting at $6,500. Brampton-based, GTA-wide.* | `<Package outcome sentence>. Starting at $<price>. Brampton-based, GTA-wide.` | *Intimate High Peak wedding tent for 50–60 guests. Starting at $800. Brampton-based, GTA-wide.* |
+| H1 | Package name | *Legacy Signature* | Package name | *High Peak 60* |
+| Schema | Service + Offer + AggregateRating (section 11) | — | Service + Offer + AggregateRating | — |
 
 ## 5.3 Per-package variant detail
 
@@ -604,15 +606,15 @@ H2: *"Three tent types. One that's ours."*
 
 Sub-copy:
 
-> Most tent rental companies own the same generic frame tents. We don't. Our Legacy Structure tents are **custom-engineered by us** — 9.5 ft leg poles, no cross-cables, fewer side poles, stronger frame, higher ceilings. Built specifically for large GTA weddings, not retrofitted from generic event tents.
+> Most tent rental companies own the same generic frame tents. We don't. The Legacy Structure is a **custom-engineered structure tent** built by Sirf Tents — 9.5 ft leg poles, no cross-cables, fewer side poles, stronger frame, higher ceilings. Made specifically for large GTA weddings, not retrofitted from generic event tents.
 
 Three cards (one per tent type):
 
 | Card | What it shows | Caption |
 |---|---|---|
-| **Legacy Structure** | Wide photo of a Legacy setup, low-angle to show the leg poles | *"Our flagship. Custom-designed. 9.5 ft leg poles. For 100–350 guests. Featured in our Legacy packages."* |
-| **Frame Tent** | Photo of a frame tent setup, clear top + fairy lights variant | *"Classic frame structure. Clear top + fairy lights, or white top + draping. Mid-scale events."* |
-| **High Peak** | Photo of a High Peak in a backyard / garden | *"Peaked roof. White or clear top, with or without draping. For 40–80 guests. Featured in our High Peak packages."* |
+| **Legacy Structure** *(structure tent)* | Wide photo of a Legacy setup, low-angle to show the leg poles | *"Our flagship. A custom-engineered structure tent — 9.5 ft leg poles, no cross-cables. For 100–350 guests. Featured in every Legacy package."* |
+| **Frame Tent** | Photo of a frame tent setup, clear top + fairy lights variant | *"Classic frame structure. Clear top with fairy lights, or white top with draping. Mid-scale events."* |
+| **High Peak** | Photo of a High Peak in a backyard / garden | *"Peaked roof. White or clear top, with or without draping. For 40–80 guests. Featured in every High Peak package."* |
 
 ### 5.4.C Section: Chairs
 
@@ -650,27 +652,40 @@ Two-column visual block:
 | Photo of installed hardwood-look floor under tent | Photo of white/ivory floor wrap |
 | *"Transforms grass or pavement into an interior-feel floor. Standard on Legacy Signature and Grand."* | *"Soft white or ivory finish. Built for the formal aesthetic."* |
 
-### 5.4.F Section: Tent Draping
+### 5.4.F Section: Tent Add-ons
 
-H2: *"Draping."*
+H2: *"Tent add-ons."*
 
-Wide horizontal photo of a fully draped interior, plus 2–3 detail crops showing drape texture and ceiling treatment. Caption:
+Sub-copy:
 
-> *"Full-perimeter drape with optional ceiling swag. White or custom color (picked on the call). Standard on Legacy Signature and Grand; add-on for High Peak and Legacy Standard."*
+> *Everything that attaches to or hangs inside the tent. Some are included in higher-tier packages; all are available as standalone add-ons.*
 
-### 5.4.G Section: Fairy Lights & Lighting
-
-H2: *"Fairy lights & lighting."*
-
-Three cards:
+Four-card grid (2×2 desktop, 1-column mobile):
 
 | Card | Photo | Caption |
 |---|---|---|
-| **Fairy Lights** | The signature ceiling bulb shot | *"Warm-white string bulbs across the ceiling. Standard on Frame Tent + Clear Top setups."* |
+| **Tent Draping** | Wide horizontal of a fully draped interior, plus detail crops showing texture | *"Full-perimeter drape with optional ceiling swag. White or custom color (picked on the call). Standard on Legacy Signature and Grand."* |
+| **Fairy Lights** | The signature ceiling bulb shot | *"Warm-white string bulbs across the ceiling. Standard on Frame Tent + Clear Top setups; add-on everywhere else."* |
 | **Chandeliers** | Hanging chandelier in tent interior | *"Crystal-style chandeliers for formal receptions. Add-on, by request."* |
-| **Up-lighting** | Tent perimeter glow at dusk | *"Color-tunable LED up-lighting around the tent perimeter."* |
+| **Up-lighting** | Tent perimeter glow at dusk | *"Color-tunable LED up-lighting around the tent perimeter. Add-on."* |
 
-(Confirm chandelier and up-lighting are actually in inventory before publishing.)
+(Confirm chandelier and up-lighting photos exist before publishing — if not, omit those two cards and the section becomes a 2-card row.)
+
+### 5.4.G Section: Bars
+
+H2: *"Bars."*
+
+Bars are their own category (not a tent add-on). They can ship to any event regardless of tent package.
+
+Two- or three-card row (depending on real inventory variants — confirm with Gurvir):
+
+| Card | Photo | Caption |
+|---|---|---|
+| **Mobile Bar** | The standard mobile bar, set up at a reception | *"Stand-alone bar for cocktail hours and receptions. Custom branding optional."* |
+| **LED Bar** | LED-illuminated bar in low-light reception | *"LED-edged bar for nighttime receptions and high-contrast aesthetic."* |
+| **Backbar Setup** *(if applicable)* | Backbar with bottle display | *"Full backbar setup with bottle display and prep space."* |
+
+(Add or remove cards based on Gurvir's actual bar inventory. Adjust copy accordingly.)
 
 ### 5.4.H Section: Final CTA
 
