@@ -76,12 +76,13 @@ Every section on every page is checked against this equation. Specifically:
 
 This appears in the hero of every page, in the footer, and in the email signature of the auto-response. It is the single most important credibility anchor on the site.
 
-## 1.5 The two moats
+## 1.5 The three moats
 
 | Moat | What it means in copy/imagery |
 |---|---|
 | **Cultural fluency** (South Asian wedding specialists) | Mention sangeet, mehndi, reception, baraat by name — never generic "South Asian wedding." Show clear-top tents for daytime ceremonies (cultural preference). Photo selection includes Sikh, Hindu, Muslim weddings explicitly. Brand voice uses Indian wedding industry vocabulary natively, not as a translation. |
 | **Premium aesthetic** (taste over price) | Cinematic photography, generous whitespace, serif display type, transparent floor pricing ("starting at $3,500") that signals premium without hiding the number. We're not the cheapest — and we say so by what we don't say. |
+| **Proprietary Legacy Structure** (better tent, not just better marketing) | Our Legacy Structure tents are **custom-engineered** by Sirf Tents — 9.5 ft leg poles (vs. industry-standard ~8 ft), no cables running across the middle (frame tents have these), fewer side poles, higher ceilings, stronger frame. This is real product engineering competitors can't claim without retooling. Surfaced specifically on Legacy package pages and the About page. Phrased as engineering facts, not boasts: *"9.5 ft leg poles. No cross-cables. Higher ceilings. Stronger frame. Built specifically for large weddings, not retrofitted from generic event tents."* |
 
 ## 1.6 What Sirf Tents is *not* (positioning negatives)
 
@@ -477,7 +478,7 @@ Three-column visual list. Each column is a category with icon/illustration + lin
 
 | Tent | Furniture | Add-ons |
 |---|---|---|
-| 40×80 Legacy structure tent · Clear top OR white top (your choice) · Side walls included · LED-rated power distribution | 200 chiavari chairs (gold or silver) · 25 round tables (60" diameter) · Linens included · 4 high-tops + spandex | Drape lining included · 200 fairy bulbs · Hardwood-look flooring · Floor wrap (white or ivory) |
+| 40×80 **Legacy Structure** tent · 9.5 ft leg poles, no cross-cables · Clear top OR white top (your choice) · Side walls included · LED-rated power distribution | 200 **Clear Chiavari** chairs · 25 **5-ft Round Tables** · Linens included · 4 cocktail tables + spandex | Full-perimeter **draping** (white or custom color) · 200 **fairy bulbs** · **Hardwood-look flooring** · **Floor wrap** (white or ivory) |
 
 Below the table, a single line:
 > *Everything you see in the photos above is included in the package price. Upgrades available on the call.*
@@ -498,9 +499,10 @@ This is *Dream Outcome × Likelihood × (no Time delay) × (no Effort)* in one p
 
 For the bride who's converted; for the planner / mother who needs to verify. Plain table, dense, no marketing language.
 
-| Spec | Value |
+| Spec | Value (Legacy Signature example) |
 |---|---|
-| Tent type | Legacy structure (white or clear top, your choice) |
+| Tent type | Legacy Structure (white or clear top, your choice) |
+| Frame design | **Custom-engineered by Sirf Tents** — 9.5 ft leg poles, no cross-cables, fewer side poles, higher ceilings than frame-tent equivalents. Built for weddings, not retrofitted. |
 | Dimensions | 40' × 80' (3,200 sq ft) |
 | Capacity (seated, banquet style) | 150–200 guests |
 | Capacity (cocktail/standing) | up to 250 |
@@ -510,6 +512,10 @@ For the bride who's converted; for the planner / mother who needs to verify. Pla
 | Tear-down | Day after event |
 | Permit required | Yes — varies by city. We file the application (included). |
 | Service area | Brampton + GTA. Outside GTA $5,000+ AOV only. |
+
+**For Legacy package pages only**, the "Frame design" row stays. **For High Peak package pages**, that row is removed and replaced with:
+
+| Frame design | Standard High Peak with center-pole. Quick install, ideal for intimate setups under 80 guests. |
 
 ### 5.1.E Compatible add-ons (visual rail)
 
@@ -565,16 +571,129 @@ Same as homepage Section J, but with the package pre-selected:
 
 The 6 pages share structure but vary on:
 
-| Package | Hero outcome line | Starting price | Capacity | Hero photo direction |
-|---|---|---|---|---|
-| High Peak 40 | *"For 40 guests who want the polish, not the production."* | $500 | 30–40 | Intimate engagement, white-top, small-scale |
-| High Peak 60 | *"For 60 guests when the day deserves more than a backyard."* | $800 | 50–60 | Garden engagement, white-top, mid-scale |
-| High Peak 80 | *"For 80 guests, the sweet spot of intimate and elegant."* | $1,000 | 70–80 | Reception, white or clear top, fuller setup |
-| Legacy Standard | *"For 100–150 guests when the wedding has to look serious."* | $3,500 | 100–150 | Sikh/Hindu wedding, mid-Legacy structure |
-| Legacy Signature | *"For 150–200 guests who want the wedding their families will talk about for a decade."* | $6,500 | 150–200 | Full Legacy with clear top + draping |
-| Legacy Grand | *"For 200+ guests when the only thing scaled up should be your guest list."* | $9,000 | 200–350 | Largest setup, full lighting + drape package |
+| Package | Tent type | Hero outcome line | Starting price | Capacity | Hero photo direction |
+|---|---|---|---|---|---|
+| High Peak 40 | High Peak (white or clear top) | *"For 40 guests who want the polish, not the production."* | $500 | 30–40 | Intimate engagement, white-top, small-scale |
+| High Peak 60 | High Peak (white or clear top) | *"For 60 guests when the day deserves more than a backyard."* | $800 | 50–60 | Garden engagement, white-top, mid-scale |
+| High Peak 80 | High Peak (white or clear top, +/- draping) | *"For 80 guests, the sweet spot of intimate and elegant."* | $1,000 | 70–80 | Reception, white or clear top, fuller setup |
+| Legacy Standard | **Legacy Structure** (custom-engineered, 9.5 ft poles) | *"For 100–150 guests when the wedding has to look serious."* | $3,500 | 100–150 | Sikh/Hindu wedding, mid-Legacy structure |
+| Legacy Signature | **Legacy Structure** + draping | *"For 150–200 guests who want the wedding their families will talk about for a decade."* | $6,500 | 150–200 | Full Legacy with clear top + draping |
+| Legacy Grand | **Legacy Structure** + draping + flooring + lighting | *"For 200+ guests when the only thing scaled up should be your guest list."* | $9,000 | 200–350 | Largest setup, full lighting + drape package |
+
+**Note on Frame Tents:** Frame tents (with clear top + fairy lights, or white top + draping) are offered as a style option on consultation calls, primarily for mid-range engagements or outdoor receptions where the customer specifically wants the frame-tent aesthetic. They are not packaged as a standalone SKU on the website — every Sirf Tents package leads with either High Peak or Legacy Structure, and frame tents come up in the conversation only when the customer asks.
 
 Pricing intentionally shows the *floor*. Real quotes flex above based on add-ons, location, date.
+
+## 5.4 Inventory showcase page (`/inventory`)
+
+A one-off page (not a template) — the visual catalog of everything Sirf Tents owns. Shows the *what*, not the *what-it-costs*. No prices anywhere. Drives package-page conversions by exposing what's possible.
+
+### 5.4.A Section structure
+
+```
+[ Hero — full-bleed photo of a finished setup, with all add-ons visible: tent + chiavari + draping + fairy lights + hardwood-look floor ]
+H1: "Inventory."  (single-word headline, Cormorant Garamond, premium feel)
+Sub: "Every piece is included in our packages or available as an add-on. Pricing is consultative — locked on the call."
+```
+
+Then six category sections, each a wide horizontal block:
+
+### 5.4.B Section: Tents
+
+H2: *"Three tent types. One that's ours."*
+
+Sub-copy:
+
+> Most tent rental companies own the same generic frame tents. We don't. Our Legacy Structure tents are **custom-engineered by us** — 9.5 ft leg poles, no cross-cables, fewer side poles, stronger frame, higher ceilings. Built specifically for large GTA weddings, not retrofitted from generic event tents.
+
+Three cards (one per tent type):
+
+| Card | What it shows | Caption |
+|---|---|---|
+| **Legacy Structure** | Wide photo of a Legacy setup, low-angle to show the leg poles | *"Our flagship. Custom-designed. 9.5 ft leg poles. For 100–350 guests. Featured in our Legacy packages."* |
+| **Frame Tent** | Photo of a frame tent setup, clear top + fairy lights variant | *"Classic frame structure. Clear top + fairy lights, or white top + draping. Mid-scale events."* |
+| **High Peak** | Photo of a High Peak in a backyard / garden | *"Peaked roof. White or clear top, with or without draping. For 40–80 guests. Featured in our High Peak packages."* |
+
+### 5.4.C Section: Chairs
+
+H2: *"Chairs."*
+
+Three cards, photo-led, no prices visible:
+
+| Card | Photo | Caption |
+|---|---|---|
+| **Standard Folding** | White folding chair, clean photo | *"The reliable workhorse. Included in entry-tier setups."* |
+| **Clear Chiavari** | Clear acrylic chiavari, close-up | *"The wedding standard. Clear acrylic. Gold cushion option."* |
+| **White Resin** | Resin chair, garden setting | *"For outdoor and daytime events. Weather-resilient, photographs clean."* |
+
+### 5.4.D Section: Tables
+
+H2: *"Tables."*
+
+Two cards:
+
+| Card | Photo | Caption |
+|---|---|---|
+| **5 ft Round** | Set table with linen, banquet style | *"Seats 8 comfortably. Banquet linens included."* |
+| **6 ft Rectangle** | Rectangle table, head-table or buffet style | *"Head tables, buffet lines, sweetheart tables."* |
+
+(If cocktail/cruiser tables with spandex exist in the real inventory, add a third card. Confirm with Gurvir before publish.)
+
+### 5.4.E Section: Flooring + Floor Wrap
+
+H2: *"Flooring & floor wrap."*
+
+Two-column visual block:
+
+| Hardwood-Look Flooring | Floor Wrap |
+|---|---|
+| Photo of installed hardwood-look floor under tent | Photo of white/ivory floor wrap |
+| *"Transforms grass or pavement into an interior-feel floor. Standard on Legacy Signature and Grand."* | *"Soft white or ivory finish. Built for the formal aesthetic."* |
+
+### 5.4.F Section: Tent Draping
+
+H2: *"Draping."*
+
+Wide horizontal photo of a fully draped interior, plus 2–3 detail crops showing drape texture and ceiling treatment. Caption:
+
+> *"Full-perimeter drape with optional ceiling swag. White or custom color (picked on the call). Standard on Legacy Signature and Grand; add-on for High Peak and Legacy Standard."*
+
+### 5.4.G Section: Fairy Lights & Lighting
+
+H2: *"Fairy lights & lighting."*
+
+Three cards:
+
+| Card | Photo | Caption |
+|---|---|---|
+| **Fairy Lights** | The signature ceiling bulb shot | *"Warm-white string bulbs across the ceiling. Standard on Frame Tent + Clear Top setups."* |
+| **Chandeliers** | Hanging chandelier in tent interior | *"Crystal-style chandeliers for formal receptions. Add-on, by request."* |
+| **Up-lighting** | Tent perimeter glow at dusk | *"Color-tunable LED up-lighting around the tent perimeter."* |
+
+(Confirm chandelier and up-lighting are actually in inventory before publishing.)
+
+### 5.4.H Section: Final CTA
+
+> **See what your event could look like.**
+>
+> *Inquire and we'll show you real setups using the pieces above for your guest count and venue.*
+>
+> `[ Get Your Quote → ]`
+
+### 5.4.I Page metadata
+
+| Field | Value |
+|---|---|
+| Title | *Tent & Event Inventory · Sirf Tents · GTA* |
+| Meta description | *Our inventory of tents, chairs, tables, flooring, draping, and lighting for GTA weddings, engagements & receptions. Rated 5 stars over 200+ events.* |
+| H1 | *Inventory.* |
+| Schema | Service (one entity per inventory category) + ImageObject for category photos |
+
+### 5.4.J What the inventory page does NOT do
+
+- ❌ Show per-item prices (consultative pricing model, locked on the call)
+- ❌ Function as an e-commerce browser ("add to cart" — there's no cart, ever)
+- ❌ Compete with package pages for SEO intent ("wedding tent rental [city]" → location page; "what's included" → package page; this page is for inventory-curious bottom-of-funnel research, mostly from people already considering us)
 
 ---
 
