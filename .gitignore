@@ -1,1 +1,9 @@
 .firecrawl/
+.DS_Store
+.superpowers/
+
+# Raw event footage (20GB+) and large source business files — never in git.
+# Phase 3 of the website plan produces optimized web exports instead.
+Pictures of Setups/
+*.pdf
+Decor_and_Tent_Bookings_UPDATED.xlsx
