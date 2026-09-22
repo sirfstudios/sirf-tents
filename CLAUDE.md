@@ -79,6 +79,17 @@ Channel is determined by the *campaign tier*, not by lead preference. Each tier 
 
 **IMPORTANT — Cross-tier rule:** Never propose flows that mix these (e.g., "Legacy lead but route to WhatsApp" or "High Peak lead but build a form"). Tier-routing is the rule, not a default.
 
+## Video — HyperFrames captions
+
+Skills live in `.claude/skills/` (`cinematic-caption` + HyperFrames core).
+
+- **Default transcriber is ElevenLabs Scribe v2**, not HyperFrames' local Parakeet/Whisper. Run:
+  `node scripts/transcribe-elevenlabs.mjs <media> --out transcript.json --keyterms "Sirf Tents,Brampton,High Peak,Legacy"`
+  It writes the normalized `transcript.json` HyperFrames consumes plus the raw `transcript.elevenlabs.json` (re-normalize with `--from-json` instead of re-billing).
+- Requires `ELEVENLABS_API_KEY` in the environment and network access to `api.elevenlabs.io`.
+- **Paid per audio minute.** Fall back to `npx hyperframes transcribe` (local, free) only if ElevenLabs is unreachable *and* Gurvir OKs it — say which engine produced the transcript.
+- Skip transcription entirely when a transcript already exists or the narration came from TTS with word timings.
+
 ## Current progress
 
 - **Done:** Optimized Meta instant form shipped 2026-05-12 on the Legacy + Premium campaign. Spec at `handoffs/meta-instant-form.md`. Option B (Meta Lead Forms) effectively chosen.
